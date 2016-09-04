@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import BlogPost from './BlogPost';
 import './BlogPage.css';
 
-class BlogPage extends Component {
-  render() {
-    return (
-      <div className="blogpage">
-        <h1> Blog Page </h1>
+const BlogPage = () => {
+  return (
+    <div className="blogpage">
+      <div className="blogpage-container">
+        <BlogPost />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default BlogPage;

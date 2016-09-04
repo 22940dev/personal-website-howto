@@ -30,9 +30,13 @@
   font-size: 1.5em;
 }
 
+/*.page-container__side-nav-link:hover {
+  color: rgba(255, 255, 255, .7)
+}*/
+
 .page-container__side-nav-link--active {
   color: rgba(255, 255, 255, .4);
-  border-right: 3px solid rgba(255, 255, 255, .4);
+  /*border-right: 3px solid rgba(255, 255, 255, .4);*/
 }
 
 .page-container__side-profile {
@@ -45,10 +49,10 @@
 }
 
 .page-container__side-profile--img {
-  border: 1px solid #fff;
+  border: 3px solid #fff;
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 50%;  
 }
 
 .page-container__side-profile--detail {
