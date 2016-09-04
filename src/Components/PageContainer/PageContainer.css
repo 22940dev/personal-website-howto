@@ -1,0 +1,12 @@
+.page-container {
+  display: flex;
+  height: 100% !important;
+}
+
+.page-container__side-nav {
+  flex: 0.3;
+}
+
+.page-container__content {
+  flex: 1;
+}

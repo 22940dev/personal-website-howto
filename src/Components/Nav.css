@@ -1,0 +1,36 @@
+/*#324359*/
+
+.navbar {
+  background-color: #63d6c4;
+  display: flex;
+  flex: 1;
+}
+
+.navbar__title {
+  margin: 0 0 0 7%;
+  padding: 10px 0;
+  flex: 1;
+  color: #fafafa;
+}
+
+.navbar__items {
+  margin: 0 7% 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__item--active {
+  color: #499a8d !important;
+}
+
+.navbar li{
+  list-style: none;
+}
+
+.navbar li a {
+  text-decoration: none;
+  padding: 20px;
+  color: #fafafa;
+}
