@@ -1,13 +1,14 @@
 import React from 'react';
-import {Link} from 'react-router';
+import Navigation from './Navigation';
+import SideProfile from './SideProfile';
 
 const SideNav = () => {
   return (
     <div className="page-container__side-nav">
-      <h1> Side Nav </h1>
-      <Link to="/"> Home </Link>
+      <Navigation />
+      <SideProfile />
     </div>
   );
 };
 
-export default SideNav;
+export default SideNav; 
