@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Josefin+Slab|Oxygen:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Slab|Signika:300,400,700);
 
 html,
 body,
@@ -13,9 +13,11 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
   margin: 0;
-  font-family: "Oxygen", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Signika", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }
 
 a {
