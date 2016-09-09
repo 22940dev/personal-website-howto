@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import BlogPost from './BlogPost';
 import './BlogPage.css';
 
