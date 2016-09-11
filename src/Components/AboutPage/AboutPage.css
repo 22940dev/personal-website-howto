@@ -44,17 +44,23 @@
 }
 
 .about-page__highlight {
-  color: #3f51b5;
+  color: #F15152;
   border-radius: 5px;
 }
 
 li .about-page__highlight:hover {
-  color: #556ce9
+  cursor: pointer;
+  color: #f37a7b
 }
 
 .about-page__email-me {
   padding: 3px 7px;
-  background-color: #3f51b5;
+  background-color: #F15152;
   color: #fff;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.about-page__email-me:hover {
+  background-color: #f37a7b;
 }
