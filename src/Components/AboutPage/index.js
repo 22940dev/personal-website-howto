@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import Title from 'react-title-component';
 import './AboutPage.css';
 
 class AboutPage extends Component {
   render() {
     return (
       <div className="about-page">
+        <Title render="About Rivki" />
         <div className="about-page--overflow"> 
         
           <div className="about-page__banner"></div>
@@ -30,7 +32,8 @@ class AboutPage extends Component {
               <li> ReactJS </li>
               <li> AngularJS </li>
               <li> IonicFramework </li>
-              <li> SASS/LESS </li>              
+              <li> SASS/LESS </li> 
+              <li> BEM Methodology </li>             
               <li> jQuery </li>
             </ul>
 

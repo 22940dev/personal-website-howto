@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import Title from 'react-title-component';
 import axios from 'axios';
 
 class BlogPost extends Component {
@@ -12,7 +13,7 @@ class BlogPost extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8080/api/articles')
+    axios.get('http://blog-mikqi.azurewebsites.net/api/articles')
       .then(res => {
         console.log(res);
         this.setState({
@@ -26,6 +27,7 @@ class BlogPost extends Component {
     console.log(this.state.articles)
     return (
       <div>
+      <Title render="About Rivki - Blog" />
       {this.state.articles.map(article => {
         return (
           <div className="blog-post__container" key={article._id}>
@@ -33,8 +35,8 @@ class BlogPost extends Component {
               <Link to={"/blog/" + article.title} ><h2>{article.title}</h2></Link>
             </div>
             <div className="blog-post__content">
-              <p>{article.body.replace(/(<([^>]+)>)/ig, '')}</p>
-              <p>read more»</p>
+              <p>{ article.body !== undefined ? article.body.replace(/(<([^>]+)>)/ig, '') : ''}</p>
+              {/* <p>read more»</p> */}
             </div>
             <div className="blog-post__footer">
               <h3 className="blog-post__footer--tags">{article.category.length > 0 ? article.category.join(', '): article.category[0]}</h3>
