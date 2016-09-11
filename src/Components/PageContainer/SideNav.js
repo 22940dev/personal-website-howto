@@ -5,8 +5,8 @@ import SideProfile from './SideProfile';
 const SideNav = () => {
   return (
     <div className="page-container__side-nav">
-      <Navigation />
       <SideProfile />
+      <Navigation />
     </div>
   );
 };
