@@ -25,3 +25,7 @@ a {
   color: #fff;
 }
 
+.loading {
+  position: absolute;
+  top: 50%;
+}

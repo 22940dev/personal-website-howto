@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Title from 'react-title-component';
 import ReactDisqusThread from 'react-disqus-thread';
+import Loader from 'halogen/ScaleLoader';
 import './PostPage.css';
 
 class PostPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      article: {}
+      article: {},
+      loading: true,
     }
     this.handleComment = this.handleComment.bind(this);
   }
@@ -19,7 +21,8 @@ class PostPage extends Component {
       .then(res => {
         console.log(res)
         this.setState({
-          article: res.data.data[0]
+          article: res.data.data[0],
+          loading: false,
         });
       })
       .catch(err => {
@@ -41,33 +44,38 @@ class PostPage extends Component {
 
     const title = article.title ? article.title + " - Blog" : "Loading...";
 
+    const loading = <div className="loading"> <Loader size="50px" margin="4px" color="#F15152" /> </div>;
+
+
     return (
       <div className="postpage">
         <Title render={title} />
-        <div className="postpage--overflow">
-          <div className="postpage__banner" style={{backgroundImage: "url(http://placekitten.com/1000/300)"}}></div>
-          <div className="postpage-container">
-            <h1 className="postpage__header">{article.title}</h1>          
-            <div className="postpage__detail-post">
-              <span className="postpage__detail-post--date">{article.formatedDate}</span>
-            </div>
-            <div className="postpage__category">
-              <span>{category}</span>
-            </div>
-            <div className="postpage__content" dangerouslySetInnerHTML={{__html: article.body}}></div>
-            
-            <ReactDisqusThread 
-              shortname="Rivki"
-              identifier={article._id}
-              title={title}
-              url={window.location.href}
-              category_id="123456"
-              onNewComment={this.handleComment}
-            />
-            
+        {this.state.loading ? loading :
+          <div className="postpage--overflow">
+            <div className="postpage__banner" style={{backgroundImage: "url(http://placekitten.com/1000/300)"}}></div>
+            <div className="postpage-container">
+              <h1 className="postpage__header">{article.title}</h1>          
+              <div className="postpage__detail-post">
+                <span className="postpage__detail-post--date">{article.formatedDate}</span>
+              </div>
+              <div className="postpage__category">
+                <span>{category}</span>
+              </div>
+              <div className="postpage__content" dangerouslySetInnerHTML={{__html: article.body}}></div>
+              
+              <ReactDisqusThread 
+                shortname="Rivki"
+                identifier={article._id}
+                title={title}
+                url={window.location.href}
+                category_id="123456"
+                onNewComment={this.handleComment}
+              />
+              
 
+            </div>
           </div>
-        </div>
+        }
       </div>
     );
   }
