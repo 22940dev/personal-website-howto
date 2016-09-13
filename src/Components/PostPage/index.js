@@ -55,20 +55,24 @@ class PostPage extends Component {
 
     const loading = <div className="loading"> <Loader size="50px" margin="4px" color="#F15152" /> </div>;
 
+    const banner = <div className="postpage__banner" style={{backgroundImage: `url(${article.banner})`}}></div>
+    
 
     return (
       <div className="postpage">
         <Title render={title} />
         {this.state.loading ? loading :
           <div className="postpage--overflow">
-            <div className="postpage__banner" style={{backgroundImage: `url(${article.banner})`}}></div>
+            {article.banner !== '' && article.banner !== undefined ? banner : ''}
             <div className="postpage-container">
-              <h1 className="postpage__header">{article.title}</h1>          
-              <div className="postpage__detail-post">
-                <span className="postpage__detail-post--date">{article.formatedDate}</span>
-              </div>
-              <div className="postpage__category">
-                <span>{category}</span>
+              <div className="postpage__header">
+                <h1 className="postpage__header--title">{article.title}</h1>          
+                <div className="postpage__header--detail-post">
+                  <span className="postpage__header--date">{article.formatedDate}</span>
+                </div>
+                <div className="postpage__header--category">
+                  <span>{category}</span>
+                </div>
               </div>
               <div className="postpage__content">
                 <Markdown hash={{html: true}} source={article.body} />

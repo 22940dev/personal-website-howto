@@ -50,7 +50,7 @@ class BlogPost extends Component {
     const loading = <div className="loading"> <Loader size="50px" margin="4px" color="#F15152" /> </div>;
 
     return (
-      <div style={{width:'100%'}}>
+      <div style={{width: '100%'}}>
         <Title render="About Rivki - Blog" />
         {this.state.loading ? loading : articles }
         

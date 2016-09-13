@@ -19,11 +19,21 @@
 }
 
 .postpage__header {
+  padding: 0 0 40px;
+  border-bottom: 2px solid #eaeaea; 
+}
+
+.postpage__header--title {
   color:#4A4A4A;
   font-weight: 700;
   font-size: 2.5em;
   text-align: left;
   text-transform: capitalize;
+}
+
+.postpage__header--date {
+  font-size: 0.9em;
+  font-style: italic
 }
 
 .postpage__banner {
@@ -35,18 +45,24 @@
   background: #123 fixed;
 }
 
-.postpage__detail-post--date {
-  font-size: 0.9em;
-  font-style: italic
-}
-
 .postpage__content {
-  margin-bottom: 50px;
+  margin: 30px 0;
   padding-bottom: 30px;
   border-bottom: 2px solid #eaeaea;
 }
+.postpage__content p a,
+.postpage__content li a {
+  color: #F15152;
+}
+.postpage__content p a:hover,
+.postpage__content li a:hover {
+  cursor: pointer;
+  color: #f37a7b
+}
 
 .postpage__content img {
+  margin: 20px 0;
+  display: block;
   max-width: 400px;
   text-align: center;
 }

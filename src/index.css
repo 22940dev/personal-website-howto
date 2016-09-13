@@ -8,6 +8,10 @@ body,
   height: 100%;
 }
 
+body {
+  background-color: #F15152;
+}
+
 h1,
 h2,
 h3,
@@ -26,6 +30,12 @@ a {
 }
 
 .loading {
-  position: absolute;
-  top: 50%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

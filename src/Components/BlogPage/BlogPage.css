@@ -16,6 +16,7 @@
 }
 
 .blog-post__container {
+  flex: 1;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(44, 44, 44, 0.08);
