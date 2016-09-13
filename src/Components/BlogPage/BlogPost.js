@@ -17,7 +17,6 @@ class BlogPost extends Component {
   componentDidMount() {
     axios.get('http://blog-mikqi.azurewebsites.net/api/articles')
       .then(res => {
-        console.log(res);
         this.setState({
           articles: res.data.articles,
           loading: false
@@ -27,7 +26,6 @@ class BlogPost extends Component {
   }
 
   render() {
-    console.log(this.state.articles)
 
     const articles = this.state.articles.map(article => {
       return (

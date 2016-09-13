@@ -18,17 +18,12 @@ class PostPage extends Component {
 
   componentDidMount() {
 
-    console.log(this.props);
-
     let title = {
       title: this.props.params.title.replace(/-/g, '%20')
     }
 
-    console.log(title);
-
     axios.post('http://blog-mikqi.azurewebsites.net/api/article/', title)
       .then(res => {
-        console.log(res)
         this.setState({
           article: res.data.data[0],
           loading: false,
@@ -40,7 +35,6 @@ class PostPage extends Component {
   }
 
   handleComment(comment) {
-    console.log(comment);
   }
 
   render() {
