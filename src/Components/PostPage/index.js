@@ -3,6 +3,7 @@ import axios from 'axios';
 import Title from 'react-title-component';
 import ReactDisqusThread from 'react-disqus-thread';
 import Loader from 'halogen/ScaleLoader';
+import Markdown from 'react-remarkable';
 import './PostPage.css';
 
 class PostPage extends Component {
@@ -16,8 +17,16 @@ class PostPage extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.params);
-    axios.post('http://blog-mikqi.azurewebsites.net/api/article/', this.props.params)
+
+    console.log(this.props);
+
+    let title = {
+      title: this.props.params.title.replace(/-/g, '%20')
+    }
+
+    console.log(title);
+
+    axios.post('http://blog-mikqi.azurewebsites.net/api/article/', title)
       .then(res => {
         console.log(res)
         this.setState({
@@ -52,7 +61,7 @@ class PostPage extends Component {
         <Title render={title} />
         {this.state.loading ? loading :
           <div className="postpage--overflow">
-            <div className="postpage__banner" style={{backgroundImage: "url(http://placekitten.com/1000/300)"}}></div>
+            <div className="postpage__banner" style={{backgroundImage: `url(${article.banner})`}}></div>
             <div className="postpage-container">
               <h1 className="postpage__header">{article.title}</h1>          
               <div className="postpage__detail-post">
@@ -61,12 +70,14 @@ class PostPage extends Component {
               <div className="postpage__category">
                 <span>{category}</span>
               </div>
-              <div className="postpage__content" dangerouslySetInnerHTML={{__html: article.body}}></div>
+              <div className="postpage__content">
+                <Markdown hash={{html: true}} source={article.body} />
+              </div>
               
               <ReactDisqusThread 
                 shortname="Rivki"
-                identifier={article._id}
                 title={title}
+                identifier={article._id}
                 url={window.location.href}
                 category_id="123456"
                 onNewComment={this.handleComment}

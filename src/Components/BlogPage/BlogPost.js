@@ -33,10 +33,10 @@ class BlogPost extends Component {
       return (
         <div className="blog-post__container" key={article._id}>
           <div className="blog-post__header">
-            <Link to={"/blog/" + article.title} ><h2>{article.title}</h2></Link>
+            <Link to={"/blog/" + article.title.replace(/\s|%20/g, '-')} ><h2>{article.title}</h2></Link>
           </div>
           <div className="blog-post__content">
-            <p>{ article.body !== undefined ? article.body.replace(/(<([^>]+)>)/ig, '') : ''}</p>
+            <p>{ article.shortDescription !== undefined ? article.shortDescription.replace(/(<([^>]+)>)/ig, '') : ''}</p>
             {/* <p>read more»</p> */}
           </div>
           <div className="blog-post__footer">
@@ -50,7 +50,7 @@ class BlogPost extends Component {
     const loading = <div className="loading"> <Loader size="50px" margin="4px" color="#F15152" /> </div>;
 
     return (
-      <div>
+      <div style={{width:'100%'}}>
         <Title render="About Rivki - Blog" />
         {this.state.loading ? loading : articles }
         
