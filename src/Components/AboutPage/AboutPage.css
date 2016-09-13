@@ -24,7 +24,6 @@
 .about-page__banner {
   width: 100%;
   height: 300px;
-  background: url(http://placekitten.com/1000/300) no-repeat center center fixed;
   background-size: cover;
 }
 

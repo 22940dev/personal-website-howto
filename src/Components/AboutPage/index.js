@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import Title from 'react-title-component';
 import './AboutPage.css';
+import banner from '../Images/bg-about.jpg';
+
+const styles = {
+  background: `url(${banner}) no-repeat fixed`,
+  backgroundSize: 'contain',
+}
 
 class AboutPage extends Component {
   render() {
@@ -9,7 +15,7 @@ class AboutPage extends Component {
         <Title render="About Rivki" />
         <div className="about-page--overflow"> 
         
-          <div className="about-page__banner"></div>
+          <div className="about-page__banner" style={styles}></div>
           <div className="about-page__container">
             <h1 className="about-page__title"> Introduction </h1>
             <p>Hi my name is Muhammad Rivki. I am a <span className="about-page__highlight">Frontend Engineer</span>, and i've been active in this field for 4 years. I love <span className="about-page__highlight">chocolate</span> I love watch a <span className="about-page__highlight">movie</span> I love <span className="about-page__highlight">classical music</span> I love <span className="about-page__highlight">beautiful design</span> and I love to <span className="about-page__highlight">learn</span> something new it's a challange for me. </p>
