@@ -21,7 +21,7 @@ class PostPage extends Component {
     let id = this.props.params.id
     console.log(id)
 
-    axios.get(`http://mikqi-blog.herokuapp.com/api/v1/articles/${id}`)
+    axios.get(`https://mikqi-blog.herokuapp.com/api/v1/articles/${id}`)
       .then(res => {
         console.log(res)
         this.setState({

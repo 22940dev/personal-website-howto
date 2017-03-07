@@ -15,7 +15,7 @@ class BlogPost extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://mikqi-blog.herokuapp.com/api/v1/articles')
+    axios.get('https://mikqi-blog.herokuapp.com/api/v1/articles')
       .then(res => {
         this.setState({
           articles: res.data.articles,
