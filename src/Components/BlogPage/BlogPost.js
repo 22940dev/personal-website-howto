@@ -15,7 +15,7 @@ class BlogPost extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://blog-mikqi.azurewebsites.net/api/articles')
+    axios.get('http://mikqi-blog.herokuapp.com/api/v1/articles')
       .then(res => {
         this.setState({
           articles: res.data.articles,
@@ -31,7 +31,7 @@ class BlogPost extends Component {
       return (
         <div className="blog-post__container" key={article._id}>
           <div className="blog-post__header">
-            <Link to={"/blog/" + article.title.replace(/\s|%20/g, '-')} ><h2>{article.title}</h2></Link>
+            <Link to={"/blog/" + article._id} ><h2>{article.title}</h2></Link>
           </div>
           <div className="blog-post__content">
             <p>{ article.shortDescription !== undefined ? article.shortDescription.replace(/(<([^>]+)>)/ig, '') : ''}</p>

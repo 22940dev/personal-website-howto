@@ -15,7 +15,7 @@ function Routes() {
         <IndexRoute component={AboutPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/blog" component={BlogPage} />
-        <Route path="/blog/:title" component={PostPage} />
+        <Route path="/blog/:id" component={PostPage} />
       </Route>
     </Route>
   )

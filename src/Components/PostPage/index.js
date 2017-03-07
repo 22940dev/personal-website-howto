@@ -18,14 +18,14 @@ class PostPage extends Component {
 
   componentDidMount() {
 
-    let title = {
-      title: this.props.params.title.replace(/-/g, '%20')
-    }
+    let id = this.props.params.id
+    console.log(id)
 
-    axios.post('http://blog-mikqi.azurewebsites.net/api/article/', title)
+    axios.get(`http://mikqi-blog.herokuapp.com/api/v1/articles/${id}`)
       .then(res => {
+        console.log(res)
         this.setState({
-          article: res.data.data[0],
+          article: res.data.articles,
           loading: false,
         });
       })
@@ -40,10 +40,10 @@ class PostPage extends Component {
   render() {
     console.log(this.state.article);
     const article = this.state.article;
-    let category;
-    if(article.category !== undefined) {
-      category = article.category.length > 0 ? article.category.join(', '): article.category[0];
-    }
+    // let category;
+    // if(article.category !== undefined) {
+    //   category = article.category.length > 0 ? article.category.join(', '): article.category[0];
+    // }
 
     const title = article.title ? article.title + " - Blog" : "Loading...";
 
@@ -60,12 +60,12 @@ class PostPage extends Component {
             {article.banner !== '' && article.banner !== undefined ? banner : ''}
             <div className="postpage-container">
               <div className="postpage__header">
-                <h1 className="postpage__header--title">{article.title}</h1>          
+                <h1 className="postpage__header--title">{article.title}</h1>
                 <div className="postpage__header--detail-post">
                   <span className="postpage__header--date">{article.formatedDate}</span>
                 </div>
                 <div className="postpage__header--category">
-                  <span>{category}</span>
+                  
                 </div>
               </div>
               <div className="postpage__content">
