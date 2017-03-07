@@ -19,11 +19,9 @@ class PostPage extends Component {
   componentDidMount() {
 
     let id = this.props.params.id
-    console.log(id)
 
     axios.get(`https://mikqi-blog.herokuapp.com/api/v1/articles/${id}`)
       .then(res => {
-        console.log(res)
         this.setState({
           article: res.data.articles,
           loading: false,
@@ -38,7 +36,6 @@ class PostPage extends Component {
   }
 
   render() {
-    console.log(this.state.article);
     const article = this.state.article;
     // let category;
     // if(article.category !== undefined) {
